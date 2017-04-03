@@ -5,18 +5,17 @@ margin-top: -150px; /* negative value of footer height */
 height: 150px;
 clear:both;
 padding-top:40px;
-background-color: rgb(50,50,50);
-color: rgb(200,200,200);
+background-color: $gray-dark;
+color: $gray-lighter;
 }
 
 .footer-social-icon {
   padding-right: 40px;
   padding-bottom: 20px;
   text-decoration: none;
-  color: rgb(200,200,200);
+  color: $gray-lighter;
   transition: 0.3s;
-}
-
-.footer-social-icon:hover {
-  color: yellow;
+  &:hover {
+    color: $yellow;
+  }
 }
