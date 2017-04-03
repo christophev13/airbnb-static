@@ -42,46 +42,26 @@ title: Le Wagon Middleman boilerplate
       </ul>
     </div>
     <!-- Your cards code -->
-    <div class="container wrapper-grey">
-      <h3>Your next trip</h3>
+
+
+    <div class="container wrapper-grey padded">
+      <h3 class="text-center">Your next trip</h3>
         <div class="row">
+          <% data.flats.each do |owner, flat| %>
           <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/images/card-brussels.jpeg');">
-              <div class="card-category">Brussels</div>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path flat.picture %>');">
+              <div class="card-category"><%= flat.city %></div>
               <div class="card-description">
-                <h2>Anne's home</h2>
-                <p>Lovely house</p>
+                <h2><%= flat.name %></h2>
+                <p><%= flat.summary %></p>
               </div>
-              <img class="card-user avatar" src='/images/anne.jpg'>
-              <a class="card-link" href="#" ></a>
+              <%= image_tag flat.owner_picture, class:"card-user avatar avatar-large" %>
+              <%= link_to "#", "flats/#{owner}.html", class: "card-link" %>
             </div>
-            <!-- insert <div class="card"> -->
           </div>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/images/card-london.jpeg');">
-              <div class="card-category">london</div>
-              <div class="card-description">
-                <h2>romain's home</h2>
-                <p>Lovely house</p>
-              </div>
-              <img class="card-user avatar" src='/images/romain.jpeg'>
-              <a class="card-link" href="#" ></a>
-            </div>
-            <!-- insert <div class="card"> -->
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('/images/card-paris.jpg');">
-              <div class="card-category">paris</div>
-              <div class="card-description">
-                <h2>seb's home</h2>
-                <p>Lovely house</p>
-              </div>
-              <img class="card-user avatar" src='/images/seb.jpg'>
-              <a class="card-link" href="#" ></a>
-            </div>          <!-- insert <div class="card"> -->
-          </div>
+          <% end %>
         </div>
-      </div>
+    </div>
 
     <!-- Your newsletter code -->
     <div class="text-center form">
